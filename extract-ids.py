@@ -20,13 +20,19 @@ def extract_ids(html_content):
         if 'GRADO' in title_text:
             grado_abbrev = get_first_letters(title_text)
             content_element = title_element.find_next_sibling('div', class_='content')
-            
+
             if content_element:
                 links = content_element.find_all('a', href=re.compile(r'/encuestas/statistics/subject/\d+/groups'))
                 
                 for link in links:
                     href = link.get('href', '')
                     match = re.search(r'/subject/(\d+)/groups', href)
+
+                    #print(f"Procesando link_text: '{link.get_text()}' | href: '{href}'")
+                    if '2025-26' not in link.get_text():
+                        print(f"  Ignorado por no contener '2025-26'")
+                        continue
+
                     if match:
                         subject_id = match.group(1)
                         asignatura = link.get('title', '').strip()
