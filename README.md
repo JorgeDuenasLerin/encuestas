@@ -3,7 +3,7 @@ Extracción simple de encuestas UPM
 
 ## Autentificarse
 
-- Autentifícate en ```https://servicios.upm.es/encuestas/statistics```
+- Autentifícate en [encuestas](https://servicios.upm.es/encuestas/statistics)
 - Copiar cookie de PHP en ```cookie.txt``` (ver ```cookie.txt.ejemplo```)
 
 ## Proceso
